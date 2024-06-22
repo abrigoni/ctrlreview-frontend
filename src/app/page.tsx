@@ -17,7 +17,7 @@ export default function Home() {
         <section className="flex flex-row mt-32">
           <div className="flex flex-1 flex-col items-start gap-6">
             <h4 className="text-5xl">Ctrl+Review: Navigate Gaming&apos;s Universe of Reviews</h4>
-            <p className="text-lg">Track games you&apos;ve played, save those you want to beat, Tell your friends what's good (and what’s not). Got a must-play series of games that you want to recommend? this is the place</p>
+            <p className="text-lg">Track games you&apos;ve played, save those you want to beat, Tell your friends what&apos;s good (and what&apos;s not). Got a must-play series of games that you want to recommend? this is the place</p>
             <button className="bg-pink-600 py-4 px-16 rounded-md">Start Exploring</button>
             <div className="flex flex-row gap-4">
               <div className="flex flex-col items-center min-w-36">
