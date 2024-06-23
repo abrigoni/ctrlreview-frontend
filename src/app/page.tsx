@@ -5,7 +5,7 @@ import { FaStar } from 'react-icons/fa';
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col px-16">
-        <nav className="flex flex-row py-8">
+        <nav className="flex flex-row py-8 justify-between">
           <Image
             src="iso_logo.svg"
             alt="Ctrl+Review Logo"
@@ -13,12 +13,16 @@ export default function Home() {
             height={30}
             priority
           />
+          <div className="flex flex-row items-center gap-8">
+            <button>Sign in</button>
+            <button className="bg-pink-600 py-2 px-4 rounded-md">Create account</button>
+          </div>
         </nav>
         <section className="flex flex-row mt-32">
           <div className="flex flex-1 flex-col items-start gap-6">
-            <h4 className="text-5xl">Ctrl+Review: Navigate Gaming&apos;s Universe of Reviews</h4>
+            <h4 className="text-5xl">Ctrl+Review: navigate gaming&apos;s universe of reviews</h4>
             <p className="text-lg">Track games you&apos;ve played, save those you want to beat, Tell your friends what&apos;s good (and what&apos;s not). Got a must-play series of games that you want to recommend? this is the place</p>
-            <button className="bg-pink-600 py-4 px-16 rounded-md">Start Exploring</button>
+            <button className="bg-pink-600 py-4 px-16 rounded-md">Get started</button>
             <div className="flex flex-row gap-4">
               <div className="flex flex-col items-center min-w-36">
                 <p>+300</p>
