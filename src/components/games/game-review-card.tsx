@@ -1,5 +1,5 @@
-import React, { HTMLAttributes, ReactElement } from 'react'
-import { FaStar } from 'react-icons/fa';
+import React, { HTMLAttributes } from 'react'
+import { IoStar } from 'react-icons/io5';
 
 export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   username: string;
@@ -26,7 +26,7 @@ const GameCard = ({username, rating, game, imageUrl, className, ...rest}: Props)
           <p className="flex-1">{username}</p>
           <div className="flex flex-row items-center gap-1">
             <p>{rating}</p>
-            <FaStar width={18} height={18} className="text-yellow-400" />
+            <IoStar size={18} className="text-yellow-400" />
           </div>
         </div>
       </div>
