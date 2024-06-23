@@ -15,7 +15,7 @@ const NavBar = (props: Props) => {
         />
         <div className="flex flex-row items-center gap-8">
           <button>Sign in</button>
-          <button className="bg-pink-600 py-2 px-4 rounded-md">Create account</button>
+          <button className="bg-pink-700 py-2 px-4 rounded-md">Create account</button>
         </div>
       </nav>
   );

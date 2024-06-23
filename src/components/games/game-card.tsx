@@ -1,37 +1,30 @@
-import React, { HTMLAttributes, ReactElement } from 'react'
-import { FaStar } from 'react-icons/fa';
+import React from 'react'
+import { IoGameController, IoHeart } from "react-icons/io5";
 
-export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
-  username: string;
-  rating: number;
-  game: string;
+export interface Props {
   imageUrl: string;
+  plays: number;
+  likes: number;
 }
 
-const GameCard = ({username, rating, game, imageUrl, className, ...rest}: Props) => {
+const GameCard = ({imageUrl, plays, likes}: Props) => {
   return (
     <div
-      className={`flex flex-col bg-[#00000040] backdrop-blur-md rounded-md border-[1px] border-[#FFFFFF16] px-3 py-4 ${className}`}
-      {...rest}
+      className="bg-cover bg-center h-60 w-40 rounded-md border-[1px] border-[#FFFFFF16] px-5 py-5 hover:border-pink-500 relative group"
+      style={{backgroundImage: `url(${imageUrl})`}}
     >
-      <img
-        src={imageUrl}
-        alt="gamecard-image"
-        className="w-64 h-80 object-cover border-[1px] border-[#FFFFFF16] rounded-md"
-      />
-      <div className="mt-2 flex flex-col">
-        <p>{game}</p>
-        <div className="flex flex-row items-center gap-2">
-          <img src="https://picsum.photos/id/1/15/15" alt="user-avatar-1" className="rounded-lg" />
-          <p className="flex-1">{username}</p>
-          <div className="flex flex-row items-center gap-1">
-            <p>{rating}</p>
-            <FaStar width={18} height={18} className="text-yellow-400" />
-          </div>
+      <div className="h-full flex flex-col justify-center bg-[#000000DD] px-4 py-4 rounded-md gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        <div className="flex flex-col justify-center items-center">
+          <IoGameController size={50} className="text-yellow-500" />
+          <p className="text-lg">{plays}</p>
+        </div>
+        <div className="flex flex-col justify-center items-center">
+          <IoHeart size={50} className="text-red-500" />
+          <p className="text-lg">{likes}</p>
         </div>
       </div>
     </div>
   )
-}
+};
 
 export default GameCard;
