@@ -7,7 +7,7 @@ import NavBar from '@/components/home/nav-bar';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col px-16 gap-36 pb-10">
+    <main className="flex min-h-screen flex-col px-16 gap-24 pb-10">
         <NavBar />
         <section className="flex flex-row">
           <div className="flex flex-1 flex-col items-start gap-6">
