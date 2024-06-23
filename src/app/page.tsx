@@ -1,23 +1,10 @@
-import Image from "next/image";
-import { FaStar } from 'react-icons/fa';
-
+import GameCard from '@/components/games/game-card';
+import NavBar from '@/components/home/nav-bar';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col px-16">
-        <nav className="flex flex-row py-8 justify-between">
-          <Image
-            src="iso_logo.svg"
-            alt="Ctrl+Review Logo"
-            width={150}
-            height={30}
-            priority
-          />
-          <div className="flex flex-row items-center gap-8">
-            <button>Sign in</button>
-            <button className="bg-pink-600 py-2 px-4 rounded-md">Create account</button>
-          </div>
-        </nav>
+        <NavBar />
         <section className="flex flex-row mt-32">
           <div className="flex flex-1 flex-col items-start gap-6">
             <h4 className="text-5xl">Ctrl+Review: navigate gaming&apos;s universe of reviews</h4>
@@ -39,42 +26,20 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-1 relative">
-            <div className="flex flex-col bg-[#00000040] backdrop-blur-md rounded-md border-[1px] border-[#FFFFFF16] px-3 py-4 absolute right-20 bottom-16 z-10">
-              <img
-                src="https://wallpapers.com/images/featured/elden-ring-pictures-6r85th0gnhifsqd0.webp"
-                alt="eldenring-image"
-                className="w-64 h-80 object-cover border-[1px] border-[#FFFFFF16] rounded-md"
-              />
-              <div className="mt-2 flex flex-col">
-                <p>Elden Ring</p>
-                <div className="flex flex-row items-center gap-2">
-                  <img src="https://picsum.photos/id/1/15/15" alt="user-avatar-1" className="rounded-lg" />
-                  <p className="flex-1">Jane.doe</p>
-                  <div className="flex flex-row items-center gap-1">
-                    <p>5</p>
-                    <FaStar width={18} height={18} className="text-yellow-400" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col bg-[#00000040] backdrop-blur-md rounded-md border-[1px] border-[#FFFFFF16] px-3 py-4 absolute right-0 bottom-0 z-0">
-              <img
-                src="https://wallpapers.com/images/hd/cyberpunk-2077-hd-v-poster-q0o5txv6a3pqp7a9.webp"
-                alt="cyberpunk-image"
-                className="w-64 h-80 object-cover border-[1px] border-[#FFFFFF16] rounded-md object-cover"
-              />
-              <div className="mt-2 flex flex-col">
-                <p>Cyberpunk 2077</p>
-                <div className="flex flex-row items-center gap-2">
-                  <img src="https://picsum.photos/id/1/15/15" alt="user-avatar-1" className="rounded-lg" />
-                  <p className="flex-1">Jane.doe</p>
-                  <div className="flex flex-row items-center gap-1">
-                    <p>4.5</p>
-                    <FaStar width={18} height={18} className="text-yellow-400" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <GameCard
+              game="Elden Ring"
+              imageUrl="https://wallpapers.com/images/featured/elden-ring-pictures-6r85th0gnhifsqd0.webp"
+              username="johndoe"
+              rating={5}
+              className="absolute right-20 bottom-16 z-10"
+            />
+            <GameCard
+              game="Cyberpunk 2077"
+              imageUrl="https://wallpapers.com/images/hd/cyberpunk-2077-hd-v-poster-q0o5txv6a3pqp7a9.webp"
+              username="janedoe"
+              rating={4.5}
+              className="absolute right-0 bottom-0 z-0"
+            />
           </div>
         </section>
     </main>
