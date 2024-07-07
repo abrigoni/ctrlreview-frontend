@@ -1,9 +1,11 @@
 'use client';
 import React from 'react'
+import {useFormState} from 'react-dom';
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as zod from "zod"
 import UserService from '@/services/user.service';
+import { handleLogin } from '@/app/lib/actions/auth';
 
 const signInchema = zod
   .object({
@@ -18,18 +20,15 @@ export type SignInSchema = zod.infer<typeof signInchema>;
 const SignUpForm = () => {
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm<SignInSchema>({
     resolver: zodResolver(signInchema),
   });
-  const onSubmit = async (data: SignInSchema) => {
-    const user = await UserService.signIn(data);
-    console.log(user);
-  }
+
+  const [state, formAction] = useFormState(handleLogin, undefined);
 
   return (
-    <form className="space-y-6" action="#" onSubmit={handleSubmit(onSubmit)}>
+    <form action={formAction} className="space-y-6">
       <div>
         <label htmlFor="username" className="block text-sm font-medium leading-6">Username</label>
         <div className="mt-2">
@@ -59,7 +58,7 @@ const SignUpForm = () => {
         </div>
       </div>
       <div>
-        <button type="submit" className="flex w-full justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">Create account</button>
+        <button type="submit" className="flex w-full justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">Log in</button>
       </div>
     </form>
   )
