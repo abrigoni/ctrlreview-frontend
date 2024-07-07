@@ -1,23 +1,26 @@
 import { SignInSchema } from "@/components/auth/sign-in-form";
 import { SignUpSchema } from "@/components/auth/sign-up-form";
+import { User } from "@/types/user";
 
 export default class UserService {
   static async createAccount(body: SignUpSchema) {
     try {
       const res = await fetch('http://localhost:8000/api/users/register', { method: 'POST', body: JSON.stringify(body) });
-      const response = res.json();
-      console.log(response);
+      const response = await res.json();
+      return response;
     } catch (err) {
       return err;
     }
   }
-  static async signIn(body: SignInSchema) {
+  static async signIn(body: SignInSchema): Promise<User | null> {
     try {
-      const res = await fetch('http://localhost:8000/api/users/sign-in', { method: 'POST', body: JSON.stringify(body) });
-      const response = res.json();
-      console.log(response);
+      console.log(body);
+      const res = await fetch('http://localhost:8000/api/users/login', { method: 'POST', body: JSON.stringify(body) });
+      const response: User = await res.json();
+      return response;
     } catch (err) {
-      return err;
+      console.error(err);
+      return null;
     }
   }
 }
