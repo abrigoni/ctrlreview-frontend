@@ -30,3 +30,8 @@ export async function handleLogin(
       console.error(error);
   }
 }
+
+export async function getSession() {
+  const session = cookies().get('session')?.value ?? null;
+  return session;
+}
