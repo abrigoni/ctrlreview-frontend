@@ -7,7 +7,7 @@ type Props = {};
 
 const NavBar = (props: Props) => {
   return (
-      <nav className="flex flex-row py-8 px-16 justify-between">
+      <nav className="flex flex-row py-8 justify-between">
         <Image
           src="iso_logo.svg"
           alt="Ctrl+Review Logo"
