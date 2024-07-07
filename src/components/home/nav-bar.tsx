@@ -26,9 +26,9 @@ const NavBar = (props: Props) => {
               <Link href="/sign-in">
                 <button>Sign in</button>
               </Link>
-            <Link href="/sign-up">
-              <button className="bg-pink-700 py-2 px-4 rounded-md">Create account</button>
-            </Link>
+              <Link href="/sign-up">
+                <button className="bg-pink-700 py-2 px-4 rounded-md">Create account</button>
+              </Link>
             </>
           )}
         </div>
