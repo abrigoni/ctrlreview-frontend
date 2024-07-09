@@ -1,12 +1,11 @@
 import React from 'react'
 import Image from "next/image";
 import Link from 'next/link';
-import { getSession } from '@/app/lib/actions/auth';
 
 type Props = {};
 
 const NavBar = (props: Props) => {
-  const session  = getSession();
+  const session  = false;
   return (
       <nav className="flex flex-row py-8 justify-between">
         <Image
@@ -17,7 +16,7 @@ const NavBar = (props: Props) => {
           priority
         />
         <div className="flex flex-row items-center gap-8">
-          {session !== null ? (
+          {session ? (
             <Link href="/profile">
               <button className="py-2 px-4 rounded-md">Profile</button>
             </Link>

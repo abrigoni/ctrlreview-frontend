@@ -1,11 +1,8 @@
 'use client';
 import React from 'react'
-import {useFormState} from 'react-dom';
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as zod from "zod"
-import UserService from '@/services/user.service';
-import { handleLogin } from '@/app/lib/actions/auth';
 
 const signInchema = zod
   .object({
@@ -25,10 +22,8 @@ const SignUpForm = () => {
     resolver: zodResolver(signInchema),
   });
 
-  const [state, formAction] = useFormState(handleLogin, undefined);
-
   return (
-    <form action={formAction} className="space-y-6">
+    <form className="space-y-6">
       <div>
         <label htmlFor="username" className="block text-sm font-medium leading-6">Username</label>
         <div className="mt-2">

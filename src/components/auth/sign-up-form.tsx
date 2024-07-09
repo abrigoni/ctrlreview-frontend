@@ -3,7 +3,6 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as zod from "zod"
-import UserService from '@/services/user.service';
 
 const signUpSchema = zod
   .object({
@@ -24,12 +23,12 @@ const SignUpForm = () => {
   } = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
   });
-  const onSubmit = (data: SignUpSchema) => {
-    UserService.createAccount(data);
+  const onSubmit = async (data: SignUpSchema) => {
+    console.log('submit', data);
   }
 
   return (
-    <form className="space-y-6" action="#" onSubmit={handleSubmit(onSubmit)}>
+    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="email" className="block text-sm font-medium leading-6">Email address</label>
         <div className="mt-2">
