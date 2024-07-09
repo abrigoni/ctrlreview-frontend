@@ -1,11 +1,13 @@
 import React from 'react'
 import Image from "next/image";
+import Link from 'next/link';
 
-type Props = {}
+export interface Props extends React.HTMLAttributes<HTMLDivElement>{}
 
-const NavBar = (props: Props) => {
+const NavBar = ({className, ...rest}: Props) => {
+  const session  = false;
   return (
-      <nav className="flex flex-row py-8 justify-between">
+      <nav className={`flex flex-row py-8 justify-between ${className}`}{...rest}>
         <Image
           src="iso_logo.svg"
           alt="Ctrl+Review Logo"
@@ -14,8 +16,20 @@ const NavBar = (props: Props) => {
           priority
         />
         <div className="flex flex-row items-center gap-8">
-          <button>Sign in</button>
-          <button className="bg-pink-700 py-2 px-4 rounded-md">Create account</button>
+          {session ? (
+            <Link href="/profile">
+              <button className="py-2 px-4 rounded-md">Profile</button>
+            </Link>
+          ) : (
+            <>
+              <Link href="/sign-in">
+                <button>Sign in</button>
+              </Link>
+              <Link href="/sign-up">
+                <button className="bg-pink-700 py-2 px-4 rounded-md">Create account</button>
+              </Link>
+            </>
+          )}
         </div>
       </nav>
   );

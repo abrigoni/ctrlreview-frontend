@@ -1,0 +1,25 @@
+.page {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'profile profile profile profile profile profile'
+    'main   main   main   main   right  right'
+  ;
+}
+
+.nav {
+  grid-area: header;
+}
+
+.profile {
+  grid-area: profile;
+}
+
+.mainsection {
+  grid-area: main;
+}
+
+.right {
+  grid-area: right;
+}
+
