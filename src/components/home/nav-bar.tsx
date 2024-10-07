@@ -5,7 +5,7 @@ import Link from 'next/link';
 export interface Props extends React.HTMLAttributes<HTMLDivElement>{}
 
 const NavBar = ({className, ...rest}: Props) => {
-  const session  = false;
+  const session  = true;
   return (
       <nav className={`flex flex-row py-8 justify-between ${className}`}{...rest}>
         <Image

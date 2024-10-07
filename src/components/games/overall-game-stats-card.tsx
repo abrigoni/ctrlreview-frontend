@@ -7,9 +7,9 @@ export interface Props {
 
 const OverallGameStatsCard = ({statName, statNumber}: Props) => {
   return (
-    <div className="flex flex-col items-center min-w-36">
-      <p>{statNumber}</p>
-      <p>{statName}</p>
+    <div className="flex flex-col items-center">
+      <p className="text-lg">+{statNumber}</p>
+      <p className="text-center text-xs">{statName}</p>
     </div>
   )
 }
