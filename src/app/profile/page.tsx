@@ -8,7 +8,7 @@ type Props = {}
 const Page = async (props: Props) => {
   return (
     <main className={`min-h-screen px-16 pb-10 profile-main ${styles.page}`}>
-      <NavBar className={styles.nav}/>
+      <NavBar className={styles.nav} user={null}/>
       {/* user info container */}
       <div className={`flex flex-row justify-between items-center ${styles.profile} mb-8`}>
           <div className="flex flex-1 flex-row items-center gap-8">
