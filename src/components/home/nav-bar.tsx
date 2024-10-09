@@ -2,6 +2,7 @@
 import React from 'react'
 import Image from "next/image";
 import Link from 'next/link';
+import { API_URL } from '@/utils/env.config';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement>{
   user: {
@@ -13,7 +14,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement>{
 
 const NavBar = ({className, user, ...rest}: Props) => {
   const onDiscordLogin = () => {
-    window.location.href = "http://localhost:3000/api/auth/login";
+    window.location.href = `${API_URL}/auth/login`;
   }
   return (
       <nav className={`flex flex-row py-8 justify-between ${className}`}{...rest}>
