@@ -1,11 +1,20 @@
+'use client';
 import React from 'react'
 import Image from "next/image";
 import Link from 'next/link';
 
-export interface Props extends React.HTMLAttributes<HTMLDivElement>{}
+export interface Props extends React.HTMLAttributes<HTMLDivElement>{
+  user: {
+    id: number;
+    email: string;
+    joinedAt: Date;
+  } | null;
+}
 
-const NavBar = ({className, ...rest}: Props) => {
-  const session  = true;
+const NavBar = ({className, user, ...rest}: Props) => {
+  const onDiscordLogin = () => {
+    window.location.href = "http://localhost:3000/api/auth/login";
+  }
   return (
       <nav className={`flex flex-row py-8 justify-between ${className}`}{...rest}>
         <Image
@@ -16,23 +25,17 @@ const NavBar = ({className, ...rest}: Props) => {
           priority
         />
         <div className="flex flex-row items-center gap-8">
-          {session ? (
+          {user ? (
             <Link href="/profile">
               <button className="py-2 px-4 rounded-md">Profile</button>
             </Link>
           ) : (
-            <>
-              <Link href="/sign-in">
-                <button>Sign in</button>
-              </Link>
-              <Link href="/sign-up">
-                <button className="bg-pink-700 py-2 px-4 rounded-md">Create account</button>
-              </Link>
-            </>
+            <button onClick={onDiscordLogin}>Log in with Discord</button>
           )}
         </div>
       </nav>
   );
 };
+
 
 export default NavBar;
