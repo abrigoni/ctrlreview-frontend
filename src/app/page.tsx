@@ -4,11 +4,20 @@ import GameReviewCard from '@/components/games/game-review-card';
 import OverallGameStatsCard from '@/components/games/overall-game-stats-card';
 import FeaturesCard from '@/components/home/features-card';
 import NavBar from '@/components/home/nav-bar';
+import { API_URL } from '@/utils/env.config';
 
-export default function Home() {
+export default async function Home() {
+  let user = null;
+  try { 
+    const res = await fetch(`${API_URL}users/profile`, { credentials: 'include', cache: 'no-cache' })
+    user = await res?.json() ?? null;
+  } catch (err) {
+    console.error(err);
+  }
+
   return (
     <main className="flex min-h-screen flex-col px-6 gap-6 pb-10 md:px-32 md:gap-24">
-      <NavBar />
+      <NavBar user={user} />
       <section className="flex flex-col gap-10 md:flex-row">
         <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
           <h4 className="text-2xl text-center md:text-left md:text-3xl">Ctrl+Review: navigate gaming&apos;s universe of reviews</h4>
