@@ -14,7 +14,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement>{
 
 const NavBar = ({className, user, ...rest}: Props) => {
   const onDiscordLogin = () => {
-    window.location.href = `${API_URL}/auth/login`;
+    window.location.href = `${API_URL}/api/auth/login`;
   }
   return (
       <nav className={`flex flex-row py-8 justify-between ${className}`}{...rest}>
