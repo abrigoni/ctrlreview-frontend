@@ -9,7 +9,7 @@ import { API_URL } from '@/utils/env.config';
 export default async function Home() {
   let user = null;
   try { 
-    const res = await fetch(`${API_URL}users/profile`, { credentials: 'include', cache: 'no-cache' })
+    const res = await fetch(`${API_URL}/users/profile`, { credentials: 'include', cache: 'no-cache' })
     user = await res?.json() ?? null;
   } catch (err) {
     console.error(err);
