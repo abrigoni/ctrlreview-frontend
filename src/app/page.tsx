@@ -1,11 +1,10 @@
-import { IoGameController, IoHeart, IoChatbubbles, IoStar, IoCalendar, IoFolderOpen, IoChatbox } from 'react-icons/io5';
+import { IoGameController, IoHeart, IoChatbubbles, IoStar,IoFolderOpen } from 'react-icons/io5';
 import GameCard from '@/components/games/game-card';
 import GameReviewCard from '@/components/games/game-review-card';
 import OverallGameStatsCard from '@/components/games/overall-game-stats-card';
 import FeaturesCard from '@/components/home/features-card';
 import NavBar from '@/components/home/nav-bar';
 import { API_URL } from '@/utils/env.config';
-import { Spotlight } from '@/components/ui/Spotlight';
 import { Button } from '@/components/ui/moving-border';
 import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
 const testimonials = [
@@ -57,7 +56,7 @@ export default async function Home() {
           <p className="text-sm text-justify md:text-md font-medium">Track games you&apos;ve played, save those you want to beat, Tell your friends what&apos;s good (and what&apos;s not). Got a must-play series of games that you want to recommend? this is the place</p>
           <Button
             borderRadius="1rem"
-            className="bg-slate-900 text-white border-slate-800"
+            className="bg-[#16141c] text-white border-slate-800"
           >
             Get started
           </Button>
@@ -131,10 +130,6 @@ export default async function Home() {
           <FeaturesCard
             feature="Create and share game lists on any theme and maintain a wish to play list"
             Icon={IoFolderOpen}
-          />
-          <FeaturesCard
-            feature="Don't know what to play? Listen to our AI recommendations or ask our GPT bot"
-            Icon={IoChatbox}
           />
         </div>
       </section>
