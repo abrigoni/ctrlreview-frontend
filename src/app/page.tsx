@@ -52,10 +52,6 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col px-6 gap-6 pb-10 md:px-32 md:gap-24">
       <NavBar user={user} />
       <section className="flex flex-col gap-10 md:flex-row">
-        <Spotlight
-          className="-top-40 left-0 md:left-20 md:-top-40"
-          fill="white"
-        />
         <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
           <h4 className="text-2xl text-center md:text-left md:text-3xl">Ctrl+Review: navigate gaming&apos;s universe of reviews</h4>
           <p className="text-sm text-justify md:text-md font-medium">Track games you&apos;ve played, save those you want to beat, Tell your friends what&apos;s good (and what&apos;s not). Got a must-play series of games that you want to recommend? this is the place</p>
